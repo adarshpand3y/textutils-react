@@ -18,13 +18,13 @@ function App() {
     if (theme === 'light') {
       setTheme('dark');
       document.body.style.backgroundColor = '#333';
-      document.title = 'TextUtils - Home (Dark Mode)';
+      document.title = 'TextUtils - Dark Mode';
       showAlert("Switched to Dark Theme");
     }
     else {
       setTheme('light');
       document.body.style.backgroundColor = '#fff';
-      document.title = 'TextUtils - Home (Light Mode)';
+      document.title = 'TextUtils - Light Mode';
       showAlert("Switched to Light Theme");
     }
   }
