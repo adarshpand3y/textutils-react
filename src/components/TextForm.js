@@ -42,6 +42,15 @@ export default function TextForm(props) {
     props.alertFunc("Removed extra spaces");
   }
 
+  const handleSaveToLocalStorage = (event) => {
+    localStorage.setItem("textUtilsWorkspaceData", JSON.stringify(text));
+    props.alertFunc("Saved current text to Local Storage. Deleting browser cache may clear your saved text.");
+  };
+
+  const handleFetchFromLocalStorage = (event) => {
+    setText(JSON.parse(localStorage.getItem("textUtilsWorkspaceData")));
+  }
+
     return (
       <>
         <div style={props.theme==='light'?lightColours:darkColours} className="container my-2">
@@ -76,6 +85,13 @@ export default function TextForm(props) {
           </button>
           <button disabled={text.length===0} type="button" className="btn btn-danger m-2" onClick={handleClearTextarea}>
             Clear Workspace
+          </button>
+          <br />
+          <button disabled={text.length === 0} type="button" className="btn btn-primary m-2" onClick={handleSaveToLocalStorage}>
+            Save Text to LocalStorage
+          </button>
+          <button disabled={localStorage.getItem("textUtilsWorkspaceData").length === 0} type="button" className="btn btn-primary m-2" onClick={handleFetchFromLocalStorage}>
+            Fetch Text from LocalStorage
           </button>
         </div>
         <div className="container">
