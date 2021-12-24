@@ -44,11 +44,11 @@ function App() {
           <Alert alertMessage={alert} />
         </div>
         <Switch>
-          <Route exact path="/about">
-            <About theme={theme} />
-          </Route>
           <Route exact path="/">
             <TextForm alertFunc={showAlert} theme={theme} />
+          </Route>
+          <Route exact path="/about">
+            <About theme={theme} />
           </Route>
         </Switch>
       </Router>

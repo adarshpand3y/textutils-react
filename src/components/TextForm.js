@@ -96,10 +96,10 @@ export default function TextForm(props) {
           <button disabled={text.length === 0} type="button" className="btn btn-primary m-2" onClick={handleSaveToLocalStorage}>
             Save Text to LocalStorage
           </button>
-          <button disabled={localStorage.getItem("textUtilsWorkspaceData").length === 0} type="button" className="btn btn-primary m-2" onClick={handleFetchFromLocalStorage}>
+          <button disabled={(localStorage.getItem("textUtilsWorkspaceData") === null || localStorage.getItem("textUtilsWorkspaceData") === "")} type="button" className="btn btn-primary m-2" onClick={handleFetchFromLocalStorage}>
             Fetch Text from LocalStorage
           </button>
-          <button disabled={localStorage.getItem("textUtilsWorkspaceData").length === 0} type="button" className="btn btn-danger m-2" onClick={handleDeleteFromLocalStorage}>
+          <button disabled={localStorage.getItem("textUtilsWorkspaceData") === null || localStorage.getItem("textUtilsWorkspaceData") === ""} type="button" className="btn btn-danger m-2" onClick={handleDeleteFromLocalStorage}>
             Delete Text from LocalStorage
           </button>
         </div>
