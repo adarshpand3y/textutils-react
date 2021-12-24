@@ -49,6 +49,12 @@ export default function TextForm(props) {
 
   const handleFetchFromLocalStorage = (event) => {
     setText(JSON.parse(localStorage.getItem("textUtilsWorkspaceData")));
+    props.alertFunc("Fetched text from localStorage");
+  };
+
+  const handleDeleteFromLocalStorage = (event) => {
+    localStorage.setItem("textUtilsWorkspaceData", "");
+    props.alertFunc("Data deleted successfully.");
   }
 
     return (
@@ -92,6 +98,9 @@ export default function TextForm(props) {
           </button>
           <button disabled={localStorage.getItem("textUtilsWorkspaceData").length === 0} type="button" className="btn btn-primary m-2" onClick={handleFetchFromLocalStorage}>
             Fetch Text from LocalStorage
+          </button>
+          <button disabled={localStorage.getItem("textUtilsWorkspaceData").length === 0} type="button" className="btn btn-danger m-2" onClick={handleDeleteFromLocalStorage}>
+            Delete Text from LocalStorage
           </button>
         </div>
         <div className="container">
